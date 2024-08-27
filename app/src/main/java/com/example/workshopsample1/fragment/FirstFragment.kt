@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import com.example.workshopsample1.R
@@ -53,6 +54,7 @@ class FirstFragment: Fragment() {
 	
 	private fun transitResultAction(returnText: String){
 		binding.returnText.text = returnText
+		binding.returnText.setTextColor(ResourcesCompat.getColor(resources, R.color.red, null))
 	}
 	
 	override fun onDestroyView() {

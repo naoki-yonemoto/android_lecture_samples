@@ -104,7 +104,7 @@
         android:layout_gravity="end"
         android:layout_marginHorizontal="32dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/transit_activity"
+        android:text="@string/transit_fragment"
         android:textAllCaps="false"
         android:background="@drawable/stroke_button"
         app:layout_constraintBottom_toBottomOf="parent"

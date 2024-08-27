@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.example.workshopsample1.activity.ContainerActivity
 import com.example.workshopsample1.activity.SecondActivity
 import com.example.workshopsample1.databinding.ActivityMainBinding
 
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 		//遷移ボタン処理
 		binding.transitBtn.setOnClickListener {
 			transitSecondActivity()
+		}
+		
+		binding.transitScreenBtn.setOnClickListener {
+			transitFragmentScreen()
 		}
 	}
 	
@@ -67,6 +72,13 @@ class MainActivity : AppCompatActivity() {
 					}
 				}
 			}
+		}
+	}
+	
+	
+	private fun transitFragmentScreen(){
+		Intent(applicationContext, ContainerActivity::class.java).apply {
+			startActivity(this)
 		}
 	}
 }

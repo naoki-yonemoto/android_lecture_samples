@@ -28,6 +28,11 @@
             android:exported="false"
             android:theme="@style/Theme.WorkShopSample1"
             />
+
+        <activity android:name=".activity.ContainerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.WorkShopSample1"
+            />
     </application>
 
 </manifest>

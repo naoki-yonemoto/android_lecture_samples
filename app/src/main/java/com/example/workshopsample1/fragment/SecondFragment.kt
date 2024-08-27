@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
+import com.example.workshopsample1.R
 import com.example.workshopsample1.databinding.FragmentScreenSecondBinding
 
 class SecondFragment : Fragment() {
@@ -41,13 +43,22 @@ class SecondFragment : Fragment() {
 	override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		
+		//セットされたargument（データ）はここに入っている
+		arguments?.let { args ->
+			//取り出す
+			args.getString(KEY_INPUT_TEXT)?.let {
+				binding.setValue.text = it
+				binding.setValue.setTextColor(ResourcesCompat.getColor(resources, R.color.orange, null))
+			}
+		}
+		
 		binding.finishBtn.setOnClickListener {
 			backToFirstFragment()
 		}
 	}
 	
 	private fun backToFirstFragment() {
-		val returnText = binding.resultText
+		val returnText = binding.resultText.text.toString()
 		
 		setFragmentResult(
 			FirstFragment.KEY_RESULT,
