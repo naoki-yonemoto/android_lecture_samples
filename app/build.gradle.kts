@@ -33,9 +33,9 @@ android {
 	kotlinOptions {
 		jvmTarget = "17"
 	}
-//	buildFeatures {
-//		compose = true
-//	}
+	buildFeatures {
+		viewBinding = true
+	}
 	composeOptions {
 		kotlinCompilerExtensionVersion = "1.5.1"
 	}
@@ -48,9 +48,11 @@ android {
 
 dependencies {
 	
+	//version catalog（別ファイルに記載する方法）を利用して記載する
+	implementation (libs.androidx.appcompat) //バージョンが下の下位互換をサポートするためのライブラリ
+	
 	//直接羅列してもOK
 	//基礎的な便利ライブラリは大抵決まってる（特にドキュメントに乗っていたりするようなものは）
-	implementation ("androidx.appcompat:appcompat:1.7.0") //バージョンが下の下位互換をサポートするためのライブラリ
 	implementation ("androidx.activity:activity-ktx:1.9.0") // Activityを便利に扱えるライブラリ
 	implementation ("androidx.fragment:fragment-ktx:1.8.1") // Fragmentを便利に扱えるライブラリ
 	implementation("androidx.constraintlayout:constraintlayout:2.1.4") // ConstraintLayoutを使うためのライブラリ
@@ -58,17 +60,18 @@ dependencies {
 	//↓は外部からバージョンの記載を受け継いでいるだけ
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.lifecycle.runtime.ktx)
-	implementation(libs.androidx.activity.compose)
-	implementation(platform(libs.androidx.compose.bom))
-	implementation(libs.androidx.ui)
-	implementation(libs.androidx.ui.graphics)
-	implementation(libs.androidx.ui.tooling.preview)
-	implementation(libs.androidx.material3)
+	//	implementation(libs.androidx.activity.compose)
+	//	implementation(platform(libs.androidx.compose.bom))
+	//	implementation(libs.androidx.ui)
+	//	implementation(libs.androidx.ui.graphics)
+	//	implementation(libs.androidx.ui.tooling.preview)
+	//	implementation(libs.androidx.material3)
+	
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
-	androidTestImplementation(platform(libs.androidx.compose.bom))
-	androidTestImplementation(libs.androidx.ui.test.junit4)
-	debugImplementation(libs.androidx.ui.tooling)
-	debugImplementation(libs.androidx.ui.test.manifest)
+	//	androidTestImplementation(platform(libs.androidx.compose.bom))
+	//	androidTestImplementation(libs.androidx.ui.test.junit4)
+	//	debugImplementation(libs.androidx.ui.tooling)
+	//	debugImplementation(libs.androidx.ui.test.manifest)
 }
