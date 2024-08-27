@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/info_text_activity"
+        android:id="@+id/info_text_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/info_text_activity"
+        android:text="@string/info_text_fragment"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
         android:id="@+id/info_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="vertical"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/transit_screen_btn"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info_text_activity">
+        app:layout_constraintTop_toBottomOf="@id/info_text_fragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,8 +43,6 @@
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <!-- 入力できるUIアイテム -->
-            <!-- 文字数制限とかもできる（コードでも制御できる） -->
             <EditText
                 android:id="@+id/input_text"
                 android:layout_width="0dp"
@@ -74,7 +72,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/result_value"
+                android:id="@+id/return_text"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -90,26 +88,14 @@
             android:id="@+id/transit_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/transit_fragment"
+            android:textAllCaps="false"
             android:layout_gravity="end"
-            android:text="@string/transit_activity"
-            android:textAllCaps="false" />
+            />
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/transit_screen_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/transit_activity"
-        android:textAllCaps="false"
-        android:background="@drawable/stroke_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_layout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

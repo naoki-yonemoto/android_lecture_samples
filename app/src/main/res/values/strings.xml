@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">WorkShopSample1</string>
+    <string name="main_text">Main Text</string>
+    <string name="info_text_activity">入力エリア(Activity)</string>
+    <string name="info_add_in_text">この画面での入力：</string>
+    <string name="info_add_before_text">前画面での入力：</string>
+    <string name="info_edit">入力(10文字以内)</string>
+    <string name="info_result_text">後の画面での返値：</string>
+    <string name="info_add_return_text">前画面への返値：</string>
+    <string name="info_set_value">渡し値</string>
+    <string name="info_return">返し値</string>
+    <string name="transit_activity">遷移(Activity)</string>
+    <string name="back_activity">戻る（Activity)</string>
+    <string name="info_text_fragment">入力エリア(Fragment)</string>
+    <string name="transit_fragment">遷移(Fragment)</string>
+    <string name="back_fragment">戻る（Fragment)</string>
 </resources>

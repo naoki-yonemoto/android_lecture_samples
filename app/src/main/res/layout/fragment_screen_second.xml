@@ -5,11 +5,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/info_text_activity"
+        android:id="@+id/info_text_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/info_text_activity"
+        android:text="@string/info_text_fragment"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,15 +19,14 @@
     <LinearLayout
         android:id="@+id/info_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/transit_screen_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info_text_activity">
+        app:layout_constraintTop_toBottomOf="@id/info_text_fragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,19 +38,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
                 android:gravity="center_vertical"
-                android:text="@string/info_add_in_text"
+                android:text="@string/info_add_before_text"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <!-- 入力できるUIアイテム -->
-            <!-- 文字数制限とかもできる（コードでも制御できる） -->
-            <EditText
-                android:id="@+id/input_text"
+            <TextView
+                android:id="@+id/set_value"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:hint="@string/info_edit"
-                android:inputType="text"
+                android:gravity="center_vertical"
+                android:hint="@string/info_set_value"
                 android:maxLength="10"
                 android:maxLines="1"
                 android:textSize="14sp" />
@@ -73,13 +70,14 @@
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/result_value"
+
+            <EditText
+                android:id="@+id/result_text"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:gravity="center_vertical"
-                android:hint="@string/info_return"
+                android:hint="@string/info_edit"
+                android:inputType="text"
                 android:maxLength="10"
                 android:maxLines="1"
                 android:textSize="14sp" />
@@ -87,29 +85,15 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/transit_btn"
+            android:id="@+id/finish_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/transit_activity"
+            android:text="@string/back_fragment"
             android:textAllCaps="false" />
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/transit_screen_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/transit_activity"
-        android:textAllCaps="false"
-        android:background="@drawable/stroke_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
