@@ -56,6 +56,7 @@ dependencies {
 	implementation ("androidx.activity:activity-ktx:1.9.0") // Activityを便利に扱えるライブラリ
 	implementation ("androidx.fragment:fragment-ktx:1.8.1") // Fragmentを便利に扱えるライブラリ
 	implementation("androidx.constraintlayout:constraintlayout:2.1.4") // ConstraintLayoutを使うためのライブラリ
+	implementation("androidx.recyclerview:recyclerview:1.3.2")
 	
 	//↓は外部からバージョンの記載を受け継いでいるだけ
 	implementation(libs.androidx.core.ktx)

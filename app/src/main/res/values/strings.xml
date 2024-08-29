@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WorkShopSample1</string>
+
+    <string name="item_id">ID:%d</string>
+    <string name="item_name">名前:%s</string>
+    <string name="item_price">価格:%,d 円</string>
 </resources>
