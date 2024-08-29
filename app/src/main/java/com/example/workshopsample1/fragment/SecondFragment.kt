@@ -19,7 +19,8 @@ class SecondFragment : Fragment() {
 	companion object {
 		private const val KEY_INPUT_TEXT = "keyInput"
 		
-		fun newInstance(inputText : String) : SecondFragment { //			val fragment = SecondFragment()
+		fun newInstance(inputText : String) : SecondFragment {
+			//			val fragment = SecondFragment()
 			//			val bundle = Bundle()
 			//			bundle.putString(KEY_INPUT_TEXT, inputText)
 			//			fragment.arguments = bundle
