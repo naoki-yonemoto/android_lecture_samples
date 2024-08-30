@@ -53,6 +53,22 @@ Googleが基本的に毎年リリースしてバージョンアップをして�
 
 ここだけ言語はKotlin or groovy (今はKotlinが主流)
 
+
+#### Googleが公式リリースしているAndroid開発を手助けするライブラリ
+AndroidXやJetPackなどと呼ばれる
+https://developer.android.com/jetpack/androidx/versions?hl=ja
+
+①コードを書きやすくしてくれる効果
+ラムダで受け取れたり、コード自体を拡張して書きやすくしてくれる効果がある
+
+②特定・新機能を使える/使いやすくするための＋αなライブラリ
+代表的なものはConstraintlayout、RecyclerViewなどの開発の補助となるようなライブラリ
+
+③OSバージョン差異を吸収して同じような振る舞いをしてくれるようなサポート用のライブラリ
+AndroidはOSによって追加されるAPI・機能、非推奨になったAPIなどOS内でのコードに差分が発生する場合
+同じようなコードでライブラリ内部でどのOSのコードを呼び出すか自動で切り分けてくれたりする。
+
+
 ## Androidのアプリでのレイアウト表示を交えた開発
 レイアウト表示システムには
 ・Java/Kotlin + XML (Android View)
@@ -137,6 +153,8 @@ BottomNavigationView
 
 
 ### ConstraintLayout
+implementation("androidx.constraintlayout:constraintlayout:2.1.4")(数字はバージョン)
+が必要
 中身のレイアウトの位置を制約によって制御する
 
 画面端から画面端まで
