@@ -1,10 +1,12 @@
 package com.example.workshopsample1.data
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * Response OverView
  */
+@JsonClass(generateAdapter = true)
 data class WeatherResponse(
 	val publicTimeFormatted : String,
 	val title : String,
@@ -17,18 +19,18 @@ data class WeatherResponse(
 //---------------------------------------------------------//
 //予報概要
 data class WeatherDescription(
-	@field:Json(name = "bodyText") val descriptionBodyText : String
+	@Json(name = "bodyText") val descriptionBodyText : String
 )
 
 //予報内容
 data class WeatherForecasts(
 	val date : String,
 	val dateLabel : String,
-	@field:Json(name = "telop") val weatherLabel : String,
-	@field:Json(name = "detail") val forecastDetail : WeatherForecastDetail,
+	@Json(name = "telop") val weatherLabel : String,
+	@Json(name = "detail") val forecastDetail : WeatherForecastDetail,
 	val temperature : WeatherTemperature,
 	val chanceOfRain: ChanceOfRain,
-	@field:Json(name = "image") val iconImage: WeatherIconImage
+	@Json(name = "image") val iconImage: WeatherIconImage
 )
 
 //予報の概要
@@ -52,10 +54,10 @@ data class TemperatureCelsius(
 //降水確率
 data class ChanceOfRain(
 	//0時から6時
-	@field:Json(name = "T00_06") val lateNight : String,
-	@field:Json(name = "T06_12") val morning : String,
-	@field:Json(name = "T12_18") val afternoon : String,
-	@field:Json(name = "T18_24") val night : String
+	@Json(name = "T00_06") val lateNight : String,
+	@Json(name = "T06_12") val morning : String,
+	@Json(name = "T12_18") val afternoon : String,
+	@Json(name = "T18_24") val night : String
 )
 
 data class WeatherIconImage(
