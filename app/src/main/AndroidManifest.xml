@@ -2,7 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+     android:usesCleartextTraffic="true"　は　HTTPでの通信を許諾する
+     Android8以降は普通はHTTP通信は全部強制的にエラーになる
+
+     今どきは全部HTTPSなので普通は問題ないが、今回は返しがHTTPなので特別に入れる
+     （セキュリティ上の懸念があるので普通は避けるべき）
+     -->
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,11 +22,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkShopSample1"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.WorkShopSample1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

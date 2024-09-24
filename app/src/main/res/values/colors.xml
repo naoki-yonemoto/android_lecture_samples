@@ -12,4 +12,6 @@
     <color name="blue">#0000FF</color>
     <color name="green">#00FF00</color>
     <color name="clear_red">#66FF0000</color>
+    <color name="orange">#FF8800</color>
+
 </resources>

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">WorkShopSample1</string>
+
+    <string name="format_publication_dateTime">予報発表日時：%s</string>
+    <string name="format_publication_header_title">概要：%s</string>
+    <string name="format_date_label">%sの天気</string>
+    <string name="format_min_temperature">最低気温：%s℃</string>
+    <string name="format_max_temperature">最高気温：%s℃</string>
+    <string name="chance_of_rain">降水確率</string>
+    <string name="late_night">深夜〜朝（0時〜6時)</string>
+    <string name="morning">朝〜昼（6時〜12時）</string>
+    <string name="afternoon">昼〜夕方（12時〜18時）</string>
+    <string name="night">夕方〜夜（18時〜24時）</string>
 </resources>
