@@ -1,5 +1,15 @@
 # Android 勉強会 #2
 
+## Kotlin Coroutine
+Kotlinで使える軽量スレッド
+実行スレッドの切り替え、非同期処理、並列処理...etc
+などサポートしており、これまでの非同期処理より直感的なコードで使える
+Observe/Subscribeな使い方もあるので対応が幅広いのも特徴
+
+AndroidでもCoroutineをサポートしており
+Androidに合わせたCoroutineもある（後述）
+https://developer.android.com/kotlin/coroutines?hl=ja
+
 
 ## ViewModel
 https://developer.android.com/topic/libraries/architecture/viewmodel?hl=ja
