@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
@@ -17,10 +18,7 @@ import coil.decode.SvgDecoder
 import coil.load
 import coil.request.ImageRequest
 import com.example.workshopsample1.R
-import com.example.workshopsample1.data.ChanceOfRain
-import com.example.workshopsample1.data.WeatherForecasts
-import com.example.workshopsample1.data.WeatherIconImage
-import com.example.workshopsample1.data.WeatherResponse
+import com.example.workshopsample1.data.*
 import com.example.workshopsample1.databinding.FragmentMainBinding
 import com.example.workshopsample1.databinding.ListItemWetherForecastBinding
 import com.example.workshopsample1.utils.ApiResultOf
@@ -40,8 +38,6 @@ class WeatherFragment : Fragment() {
 	
 	private lateinit var weatherListAdapter : WeatherListAdapter
 	
-	private val loading = MutableStateFlow(false)
-	
 	override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?, savedInstanceState : Bundle?) : View? {
 		_binding = FragmentMainBinding.inflate(inflater, container, false)
 		return binding.root
@@ -54,36 +50,34 @@ class WeatherFragment : Fragment() {
 		
 		//suspend funをコールするにはCoroutineScope内からコールする
 		lifecycleScope.launch {
-			loading.emit(true)
-			
-			//CityCode：130010（東京）
 			//suspend Functionをコールする
-			viewModel.getWeatherInformation("130010")
+			viewModel.getWeatherInformation(CityCode.Tokyo)
 		}
 		
 		initWeatherInformation()
+		reloadWeatherInfo()
 	}
 	
 	//値をそのままFragmentまで返すケース
 	private suspend fun callApi(){
-		val result = viewModel.getWeatherInformation2("130010")
+		val result = viewModel.getWeatherInformation2(CityCode.Tokyo)
 	}
 	
 	//LoadingViewをセットする
-	//APIコール中はLoadingアイコンとか出す
+	//APIコール中はLoadingアイコンとか出す(必要ならば）
 	private fun setLoading() {
 		lifecycleScope.launch {
-			loading.collect {
+			viewModel.loading.collect {
 				binding.loading.visibility = if (it) View.VISIBLE else View.GONE
 			}
 		}
 	}
 	
-	
 	private fun initWeatherInformation() {
 		lifecycleScope.launch {
-			loading.emit(false)
 			viewModel.weatherInformation.collect { result ->
+				viewModel.setLoading(false)
+				
 				when (result) {
 					is ApiResultOf.Success -> {
 						val response = result.value
@@ -115,6 +109,22 @@ class WeatherFragment : Fragment() {
 		}
 	}
 	
+	private fun reloadWeatherInfo(){
+		binding.reload.setOnClickListener {
+			lifecycleScope.launch(Dispatchers.IO) {
+				when(viewModel.weatherPoint){
+					is CityCode.Tokyo -> {
+						viewModel.getWeatherInformation(CityCode.Osaka)
+					}
+					
+					is CityCode.Osaka -> {
+						viewModel.getWeatherInformation(CityCode.Tokyo)
+					}
+				}
+			}
+		}
+	}
+	
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null
@@ -123,6 +133,8 @@ class WeatherFragment : Fragment() {
 	
 	companion object {
 		private val TAG = WeatherFragment::class.java.simpleName
+		private const val TOKYO_CODE : String = "130010"
+		private const val OSAKA_CODE : String = "270000"
 	}
 	
 	private inner class WeatherListAdapter : ListAdapter<WeatherForecasts, WeatherListAdapter.WeatherListViewHolder>(DIFF_UTIL_ITEM_CALLBACK) {
