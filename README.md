@@ -79,13 +79,14 @@ Jsonをパース補助するためのライブラリ（Java/Kotlinライブラ�
 
 ※代替ライブラリ
 通信について
- → 最近ではKotlin純正なKotlin純正の軽量サーバサイドライブラリもある
- → サーバサイド（Spring）の代替にあたるものだが、Androidでも使える
+[Ktor]
+→ 最近ではKotlin純正なKotlin純正の軽量サーバサイドライブラリもある
+→ サーバサイド（Spring）の代替にあたるものだが、Androidでも使える
 
 Jsonパーサーについて
- →　こちらもKotlin純正のkotlin serializationがある
- →　純Kotlinで書く場合はこちらのサポートが手厚いので将来的にはこちらに乗り換えることになるかも？
-
+[kotlin serialization]
+→　こちらもKotlin純正のライブラリがある
+→　純Kotlinで書く場合はこちらのサポートが手厚いので将来的にはこちらに乗り換えることになるかも？
 
 ### その他のライブラリ
 ・Dagger Hilt https://developer.android.com/training/dependency-injection/hilt-android?hl=ja
