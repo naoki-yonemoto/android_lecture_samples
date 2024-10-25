@@ -57,6 +57,13 @@ dependencies {
 	implementation ("androidx.fragment:fragment-ktx:1.8.1") // Fragmentを便利に扱えるライブラリ
 	implementation("androidx.constraintlayout:constraintlayout:2.1.4") // ConstraintLayoutを使うためのライブラリ
 	
+	//Zxing (QRコードを読み取りできるライブラリ)
+	implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+	implementation ("com.google.zxing:core:3.4.1")
+	
+	//MLKitのコード読み込ませのほうがViewをカスタムしやすい気がする
+//	implementation 'com.google.mlkit:barcode-scanning:17.3.0'
+	
 	//↓は外部からバージョンの記載を受け継いでいるだけ
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.lifecycle.runtime.ktx)
